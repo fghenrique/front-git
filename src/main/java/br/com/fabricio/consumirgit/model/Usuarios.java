@@ -16,7 +16,7 @@ public class Usuarios {
     @Column(nullable = false)
     private String password;
 
-    private int active;
+    private Boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"),
@@ -28,7 +28,7 @@ public class Usuarios {
         this.username = username;
         this.password = password;
         this.roles = roles;
-        this.active = 1;
+        this.enabled = true;
     }
 
     protected Usuarios() {
@@ -58,12 +58,12 @@ public class Usuarios {
         this.password = password;
     }
 
-    public int getActive() {
-        return active;
+    public Boolean getEnabled() {
+        return enabled;
     }
 
-    public void setActive(int active) {
-        this.active = active;
+    public void setEnabled(Boolean enabled) {
+        this.enabled = enabled;
     }
 
     public List<Roles> getRoles() {
