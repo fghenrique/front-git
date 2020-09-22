@@ -18,6 +18,8 @@ public class Usuarios {
 
     private Boolean enabled;
 
+    private Boolean persistido;
+
     @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id"),
@@ -31,7 +33,7 @@ public class Usuarios {
         this.enabled = true;
     }
 
-    protected Usuarios() {
+    public Usuarios() {
     }
 
     public Integer getId() {
@@ -72,5 +74,13 @@ public class Usuarios {
 
     public void setRoles(List<Roles> roles) {
         this.roles = roles;
+    }
+
+    public Boolean getPersistido() {
+        return persistido;
+    }
+
+    public void setPersistido(Boolean persistido) {
+        this.persistido = persistido;
     }
 }

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<div class="container">
+    <div style="width:600px;margin-left: auto;margin-right: auto;margin-top:24px;padding: 24px;">
+        <div class="card">
+            <div class="card-header">
+                Cadastro de usuário
+            </div>
+            <div class="card-block" style="padding: 24px;">
+                <form role="form"
+                      th:action="${usuario.persistido} ? @{/usuario/editar} : @{/usuario/novo}"
+                      method="post" th:object="${usuario}">
+                    <fieldset>
+                        <div class="box-body">
+                            <input type="hidden" th:field="*{id}">
+
+                            <div class="form-group col-md-6">
+                                <label for="inputUsername">Usuario</label>
+                                <input type="text" class="form-control" id="inputUsername" placeholder="Informe o login"
+                                       th:field="*{username}" required/>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="inputSenha">Senha</label>
+                                <input type="password" class="form-control" id="inputSenha" placeholder="Informe a senha"
+                                       th:field="*{password}" required/>
+                            </div>
+                        </div>
+                        <div class="form-actions" style="margin-top: 12px;">
+                            <button type="submit" class="btn btn-success">Cadastart</button>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

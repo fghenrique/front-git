@@ -28,4 +28,12 @@ public class UsuariosServiceImpl implements UsuariosService {
     public Usuarios findByUsername(String username) {
         return usrRest.username(username);
     }
+
+    @Override
+    public Usuarios save(Usuarios usuarios) {return usrRest.save(usuarios);}
+
+    @Override
+    public void deleteById(Integer id) {
+        usrRest.deleteById(id);
+    }
 }
