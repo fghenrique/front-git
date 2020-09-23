@@ -6,6 +6,14 @@
     <meta charset="UTF-8"/>
     <link th:href="@{~/bootstrap.min.css}" rel="stylesheet">
     <link th:href="@{~/fontawesome/css/all.css}" rel="stylesheet">
+    <link th:href="@{~/fontawesome/css/dataTables.bootstrap.css}" rel="stylesheet">
+    <!-- DataTables-->
+    <script th:src="@{~/jquery/dist/jquery.min.js}"></script>
+    <script th:src="@{~/datatables/js/jquery.dataTables.js}"></script>
+    <script th:src="@{~/datatables/js/dataTables.bootstrap.js}"></script>
+    <script th:src="@{~/fontawesome/js/dataTableGeral.js}"></script>
+
+
 </head>
 <body>
 
@@ -21,14 +29,8 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" th:href="@{~/usuario/novo}"><i class="fa fa-users"></i>Cadastrar-se</a>
                 </li>
-                <li sec:authorize="isAuthenticated()" class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/profile/index}">Profile</a>
-                </li>
                 <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/admin/index}">Admin</a>
-                </li>
-                <li sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_MANAGER')" class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/management/index}">Management</a>
+                    <a class="nav-link" href="#" th:href="@{~/usuario/list}">Usuários</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/logout}">
@@ -38,5 +40,6 @@
         </div>
     </nav>
 </div>
+
 </body>
 </html>

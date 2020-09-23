@@ -19,8 +19,8 @@ public class ProgramadoresServiceImpl implements ProgramadoresService {
     private final String URL = "http://localhost:7777";
 
     @Override
-    public List<Programadores> findAll() {
-        var programadores = Arrays.asList(Objects.requireNonNull(restTemplate.getForObject(URL + "/list", Programadores[].class)));
+    public Programadores findAll() {
+        var programadores = restTemplate.getForObject(URL + "/list", Programadores.class);
         return programadores;
     }
 

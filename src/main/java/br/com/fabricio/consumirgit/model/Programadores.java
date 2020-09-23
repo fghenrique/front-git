@@ -2,34 +2,37 @@ package br.com.fabricio.consumirgit.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import java.util.List;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Programadores {
 
-    private String id;
-    private String login;
-    private String url;
+    private List<Programador> items;
+    private String total_count;
+    private String incomplete_results;
 
-    public String getId() {
-        return id;
+    public List<Programador> getItems() {
+        return items;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setItems(List<Programador> items) {
+        this.items = items;
     }
 
-    public String getLogin() {
-        return login;
+    public String getTotal_count() {
+        return total_count;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setTotal_count(String total_count) {
+        this.total_count = total_count;
     }
 
-    public String getUrl() {
-        return url;
+    public String getIncomplete_results() {
+        return incomplete_results;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setIncomplete_results(String incomplete_results) {
+        this.incomplete_results = incomplete_results;
     }
 }
+

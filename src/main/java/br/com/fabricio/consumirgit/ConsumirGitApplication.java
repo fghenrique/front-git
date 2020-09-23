@@ -11,7 +11,6 @@ import org.springframework.boot.web.servlet.server.ServletWebServerFactory;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.annotation.Bean;
 
-
 @EnableFeignClients
 @SpringBootApplication
 public class ConsumirGitApplication {
