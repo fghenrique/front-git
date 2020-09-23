@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments.html :: headerfiles"></head>
+<body>
+<header th:insert="fragments.html :: nav"></header>
+<div class="container">
+    <div class="form-grup col-md-6">
+        <div th:if="${message}"
+             th:class="${'alert ' + alertClass + ' alert-dismissible'}">
+            <button type="button" class="close" data-dismiss="alert"
+                    aria-hidden="true">×
+            </button>
+            <h4>
+                <i class="icon fa fa-info"></i>
+            </h4>
+            <div th:text="${message}"/>
+        </div>
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title" th:text="${FRM}"></h3>
+            </div>
+            <br/>
+            <div class="form-row">
+                <div class="form-grup col-md-12">
+                    <label th:text="${volta}"></label>
+                </div>
+            </div>
+
+            <div class="box-body">
+                <table id="list" class="table table-bordered table-hover">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>type</th>
+                        <th>login</th>
+                        <th>score</th>
+                        <th>url</th>
+                        <th>html_url</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr th:if="${programadores.empty}">
+                        <td colspan="6"> Não há dados para listar!</td>
+                    </tr>
+                    <tr th:each="programador : ${programadores}">
+                        <td><span th:text="${programador.id}"></span></td>
+                        <td><span th:text="${programador.type}"></span></td>
+                        <td><span th:text="${programador.login}"></span></td>
+                        <td><span th:text="${programador.score}"></span></td>
+                        <td><span th:text="${programador.url}"></span></td>
+                        <td><span th:text="${programador.html_url}"></span></td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div th:fragment="script">
+    <script type="text/javascript">
+        confTabelaSimples($("#list"), "Programadores");
+    </script>
+</div>
+</body>
+</html>
