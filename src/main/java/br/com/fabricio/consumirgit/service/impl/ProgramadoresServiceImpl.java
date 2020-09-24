@@ -20,7 +20,7 @@ public class ProgramadoresServiceImpl implements ProgramadoresService {
 
     @Override
     public Programadores findAll() {
-        var programadores = restTemplate.getForObject(URL + "/list", Programadores.class);
+        Programadores programadores = restTemplate.getForObject(URL + "/list", Programadores.class);
         return programadores;
     }
 
