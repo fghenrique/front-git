@@ -1,9 +1,6 @@
 package br.com.fabricio.consumirgit.model;
 
-import javax.persistence.*;
 
-@Entity
-@Table(name = "roles")
 public class Roles {
 
     public Roles() {}
@@ -12,11 +9,8 @@ public class Roles {
         this.nome = nome;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(unique = true, length = 100)
     private String nome;
 
     public String getNome() {

@@ -1,29 +1,19 @@
 package br.com.fabricio.consumirgit.model;
 
-import javax.persistence.*;
 import java.util.List;
 
-@Entity
 public class Usuarios {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
-    @Column(nullable = false)
     private String username;
 
-    @Column(nullable = false)
     private String password;
 
     private Boolean enabled;
 
     private Boolean persistido;
 
-    @ManyToMany(fetch = FetchType.EAGER)
-    @JoinTable(name = "usuarios_roles", joinColumns = @JoinColumn(name = "usuario_id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id"),
-            uniqueConstraints = {@UniqueConstraint(columnNames = {"usuario_id", "role_id"})})
     private List<Roles> roles;
 
     public Usuarios(String username, String password, List<Roles> roles) {

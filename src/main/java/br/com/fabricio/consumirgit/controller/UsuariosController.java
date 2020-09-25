@@ -4,6 +4,7 @@ import br.com.fabricio.consumirgit.model.Roles;
 import br.com.fabricio.consumirgit.model.Usuarios;
 import br.com.fabricio.consumirgit.service.UsuariosService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -31,6 +32,8 @@ public class UsuariosController extends Base<Usuarios> {
         this.SUCCESS_MESSAGE = "Usuário cadastrada com sucesso!";
         this.EDITABLE_MESSAGE = "Usuário alterado com sucesso!";
     }
+
+    private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     @Autowired
     private UsuariosService ursService;
@@ -86,6 +89,8 @@ public class UsuariosController extends Base<Usuarios> {
     }
 
     public void reiniciarVariaveisDeClasseESalvarUsuarios(Usuarios usuario) {
+        usuario.setEnabled(true);
+        usuario.setPassword(passwordEncoder.encode(usuario.getPassword()));
         ursService.save(usuario);
         this.listaUsuarios = null;
     }

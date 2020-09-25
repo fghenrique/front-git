@@ -12,8 +12,6 @@
     <script th:src="@{~/datatables/js/jquery.dataTables.js}"></script>
     <script th:src="@{~/datatables/js/dataTables.bootstrap.js}"></script>
     <script th:src="@{~/fontawesome/js/dataTableGeral.js}"></script>
-
-
 </head>
 <body>
 
@@ -29,8 +27,11 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#" th:href="@{~/usuario/novo}"><i class="fa fa-users"></i>Cadastrar-se</a>
                 </li>
+                <li sec:authorize="isAuthenticated()" class="nav-item">
+                    <a class="nav-link" href="#" th:href="@{~/programadores/list}">Lista Programadores</a>
+                </li>
                 <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/usuario/list}">Usuários</a>
+                    <a class="nav-link" href="#" th:href="@{~/usuario/list}">editar Usuários</a>
                 </li>
             </ul>
             <form class="form-inline my-2 my-lg-0" form-method="post" th:action="@{/logout}">
