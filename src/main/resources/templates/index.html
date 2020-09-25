@@ -1,6 +1,5 @@
-<!DOCTYPE HTML>
-<html xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head th:insert="fragments.html :: headerfiles"></head>
 <body>
 <header th:insert="fragments.html :: nav"></header>
@@ -11,16 +10,6 @@
         <p class="lead">Front para consumir api do git hub.</p>
         <hr class="my-4">
         <p>Exemplo simples,Espero que goste :-)</p>
-        <li sec:authorize="hasRole('ROLE_USER')" class="nav-item">
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="#" th:href="@{~/programadores/list}" role="button">Lista de
-                    programadores</a>
-            </p>
-        </li>
-        <!--<p class="lead">-->
-            <!--<a class="btn btn-primary btn-lg" href="#" th:href="@{~/programadores/list}" role="button">Lista de-->
-                <!--programadores</a>-->
-        <!--</p>-->
     </div>
 </div>
 </body>
