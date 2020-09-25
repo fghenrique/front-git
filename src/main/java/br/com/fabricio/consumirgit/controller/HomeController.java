@@ -15,6 +15,9 @@ public class HomeController {
     @GetMapping("login")
     public String login(){return "login";}
 
+    @GetMapping("signin")
+    public String signin(){return "login";}
+
     @GetMapping("usuario")
     public String usuario(){return "public/form_usuario";}
 }

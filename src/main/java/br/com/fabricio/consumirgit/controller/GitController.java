@@ -16,8 +16,8 @@ import java.util.Objects;
 public class GitController extends Base<Programador> {
 
     public GitController() {
-        this.URL_LIST = "public/list/list_programadores";
-        this.URL_FORM = "public/form/form_programadores";
+        this.URL_LIST = "git/list/list_programadores";
+        this.URL_FORM = "git/form/form_programadores";
         this.TITLE_LIST = "Lista de programadores";
         this.TITLE_NEW = "Novo programadores";
         this.TITLE_EDIT = "Editar programadores";

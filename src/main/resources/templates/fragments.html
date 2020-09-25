@@ -28,7 +28,7 @@
                     <a class="nav-link" href="#" th:href="@{~/usuario/novo}"><i class="fa fa-users"></i>Cadastrar-se</a>
                 </li>
                 <li sec:authorize="isAuthenticated()" class="nav-item">
-                    <a class="nav-link" href="#" th:href="@{~/programadores/list}"><i class="fa fa-unlink"></i>Lista Programadores</a>
+                    <a class="nav-link" href="#" th:href="@{~/programadores/list}"><i class="fa fa-repeat"></i>Lista Programadores</a>
                 </li>
                 <li sec:authorize="hasRole('ROLE_ADMIN')" class="nav-item">
                     <a class="nav-link" href="#" th:href="@{~/usuario/list}">editar Usuários</a>
